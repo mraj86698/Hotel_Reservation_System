@@ -13,9 +13,9 @@ public class HotelReservationMain {
 		 * Default Entries
 		 */
 		HotelReservation obj = new HotelReservation();
-		obj.addHotel("Lakewood", 110);
-		obj.addHotel("Bridgewood", 160);
-		obj.addHotel("Ridgewood", 220);
+		obj.addHotel("Lakewood", 110,90);
+		obj.addHotel("Bridgewood", 160,150);
+		obj.addHotel("Ridgewood", 220,150);
 		while(true) {
 
 			 System.out.println( "\nWelcome to Hotel Reservation Program" );
@@ -38,10 +38,12 @@ public class HotelReservationMain {
 		            System.out.println();
 		            System.out.print("Enter hotel name: ");
 		            String hotelName = sc.next();
-		            System.out.print("Enter regular rate of rooms: ");
-		            int rate_regular = sc.nextInt();
+		            System.out.print("Enter WeekDay rate of rooms: ");
+		            int weekdayRegularRate = sc.nextInt();
+		            System.out.print("Enter Weekend rate of rooms: ");
+		            int weekendRegularRate = sc.nextInt();
 
-		            obj.addHotel(hotelName, rate_regular);
+		            obj.addHotel(hotelName, weekdayRegularRate,weekendRegularRate);
 		            break;
 		        }
 		        case "2":{
