@@ -27,6 +27,7 @@ public class HotelReservationMain {
 		        System.out.println("What do you want to do?");
 		        System.out.println("1. Add Hotel Entry.");
 		        System.out.println("2. Display Hotel Entry");
+		        System.out.println("3. Cheapest Hotel Based on WeekdayRegularRate");
 		        String user_input=sc.next();
 
 
@@ -46,6 +47,13 @@ public class HotelReservationMain {
 		        case "2":{
 		        	obj.showHotelInfo();
 		        	break;
+		        }
+		        case "3":{
+		        	System.out.println(" ");
+		            System.out.println("Cheapest Hotel Based on WeekdayRegularRate");
+		            obj.findCheapestHotelOne("10-Sep-2020","11-Sep-2020");
+		            System.out.println(" ");
+		            break;
 		        }
 
 		        default:

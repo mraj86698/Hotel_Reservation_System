@@ -3,10 +3,14 @@ package com.java.maven.Hotel_Reservation_System;
 public class Hotel {
 	String hotelName;
 	int regularRate;
+	int Total;
 
 	public Hotel(String hotelName, int regularRate) {
 		this.hotelName = hotelName;
 		this.regularRate = regularRate;
+
+	}
+	public Hotel() {
 
 	}
 	/**
@@ -24,5 +28,24 @@ public class Hotel {
 		System.out.println("------------------------------------------------------");
 		System.out.println();
 	}
+	public String getHotelName() {
+		return hotelName;
+	}
+	public void setHotelName(String hotelName) {
+		this.hotelName = hotelName;
+	}
+	public int getRegularRate() {
+		return regularRate;
+	}
+	public void setRegularRate(int regularRate) {
+		this.regularRate = regularRate;
+	}
+	public int getTotal() {
+		return Total;
+	}
+	public void setTotal(int total) {
+		Total = total;
+	}
+
 
 }
