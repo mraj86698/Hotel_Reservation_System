@@ -13,9 +13,9 @@ public class HotelReservationMain {
 		 * Default Entries
 		 */
 		HotelReservation obj = new HotelReservation();
-		obj.addHotel("Lakewood", 110,90,3);
-		obj.addHotel("Bridgewood", 150,50,4);
-		obj.addHotel("Ridgewood", 220,150,5);
+		obj.addHotel("Lakewood", 110,90,80,80,3);
+		obj.addHotel("Bridgewood", 150,50,110,50,4);
+		obj.addHotel("Ridgewood", 220,150,100,40,5);
 		while(true) {
 
 			 System.out.println( "\nWelcome to Hotel Reservation Program" );
@@ -31,6 +31,8 @@ public class HotelReservationMain {
 		        System.out.println("4. Cheapest Hotel Based on WeekEndRegularRate");
 		        System.out.println("5. Cheapest best Rated Hotel ");
 		        System.out.println("6. Best Rated Hotel");
+		        System.out.println("7. Cheapest Best Hotel Rating for Reward");
+
 
 		        String user_input=sc.next();
 
@@ -46,10 +48,14 @@ public class HotelReservationMain {
 		            int weekdayRegularRate = sc.nextInt();
 		            System.out.print("Enter Weekend rate of rooms: ");
 		            int weekendRegularRate = sc.nextInt();
+		            System.out.print("Enter WeekDay rate of rooms: ");
+		            int weekdayReward = sc.nextInt();
+		            System.out.print("Enter Weekend rate of rooms: ");
+		            int weekendReward = sc.nextInt();
 		            System.out.print("Enter Rating of Hotel: ");
 		            int rating = sc.nextInt();
 
-		            obj.addHotel(hotelName, weekdayRegularRate,weekendRegularRate,rating);
+		            obj.addHotel(hotelName, weekdayRegularRate,weekendRegularRate,weekdayReward,weekendReward,rating);
 		            break;
 		        }
 		        case "2":{
@@ -83,6 +89,14 @@ public class HotelReservationMain {
 		            obj.findBestRatingForRegular("11-Sep-2020","12-Sep-2020");
 		            System.out.println(" ");
 		            break;
+		        }
+		        case "7":{
+		        	System.out.println(" ");
+		            System.out.println("Cheapest best Hotel Rating For Regular");
+		            obj.findCheapestHotelRatingForReward("11-Sep-2020","12-Sep-2020");
+		            System.out.println(" ");
+		            break;
+
 		        }
 
 
