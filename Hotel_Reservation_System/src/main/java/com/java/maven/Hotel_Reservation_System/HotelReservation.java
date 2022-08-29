@@ -20,9 +20,9 @@ public class HotelReservation {
 	 * @param rate_regular
 	 * @return a boolean value true
 	 */
-	public boolean addHotel(String hotelName, int weekdayRegularRate,int weekendRegularRate) {
+	public boolean addHotel(String hotelName, int weekdayRegularRate,int weekendRegularRate,int rating) {
 
-		Hotel hotel = new Hotel(hotelName,  weekdayRegularRate,weekendRegularRate);
+		Hotel hotel = new Hotel(hotelName,  weekdayRegularRate,weekendRegularRate,rating);
 		hotelList.add(hotel);
 		return true;
 	}
