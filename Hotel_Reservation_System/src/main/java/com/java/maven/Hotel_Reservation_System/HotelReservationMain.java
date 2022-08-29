@@ -14,7 +14,7 @@ public class HotelReservationMain {
 		 */
 		HotelReservation obj = new HotelReservation();
 		obj.addHotel("Lakewood", 110,90);
-		obj.addHotel("Bridgewood", 160,150);
+		obj.addHotel("Bridgewood", 150,50);
 		obj.addHotel("Ridgewood", 220,150);
 		while(true) {
 
@@ -28,6 +28,8 @@ public class HotelReservationMain {
 		        System.out.println("1. Add Hotel Entry.");
 		        System.out.println("2. Display Hotel Entry");
 		        System.out.println("3. Cheapest Hotel Based on WeekdayRegularRate");
+		        System.out.println("4. Cheapest Hotel Based on WeekEndRegularRate");
+
 		        String user_input=sc.next();
 
 
@@ -53,7 +55,14 @@ public class HotelReservationMain {
 		        case "3":{
 		        	System.out.println(" ");
 		            System.out.println("Cheapest Hotel Based on WeekdayRegularRate");
-		            obj.findCheapestHotelOne("10-Sep-2020","11-Sep-2020");
+		            obj.findCheapestHotelOne("11-Sep-2020","12-Sep-2020");
+		            System.out.println(" ");
+		            break;
+		        }
+		        case "4":{
+		        	System.out.println(" ");
+		            System.out.println("*Cheapest Hotel Based on WeekendRegularRate");
+		            obj.findCheapestHotelTwo("11-Sep-2020","12-Sep-2020");
 		            System.out.println(" ");
 		            break;
 		        }
