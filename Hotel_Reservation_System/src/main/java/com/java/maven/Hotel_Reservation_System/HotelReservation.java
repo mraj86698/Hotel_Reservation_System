@@ -20,9 +20,9 @@ public class HotelReservation {
 	 * @param rate_regular
 	 * @return a boolean value true
 	 */
-	public boolean addHotel(String hotelName, int rate_regular) {
+	public boolean addHotel(String hotelName, int weekdayRegularRate,int weekendRegularRate) {
 
-		Hotel hotel = new Hotel(hotelName, rate_regular);
+		Hotel hotel = new Hotel(hotelName,  weekdayRegularRate,weekendRegularRate);
 		hotelList.add(hotel);
 		return true;
 	}
@@ -55,11 +55,11 @@ public class HotelReservation {
          * hotelList and storing in cheapestHotel
          */
 
-        Optional<Hotel> cheapestHotel = this.hotelList.stream().sorted(Comparator.comparing(Hotel::getRegularRate)).findFirst();
+        Optional<Hotel> cheapestHotel = this.hotelList.stream().sorted(Comparator.comparing(Hotel::getWeekdayRegularRate)).findFirst();
 
         Hotel hotel = new Hotel();                                                                                  //Hotel Object
         hotel.setHotelName(cheapestHotel.get().getHotelName());
-        hotel.setTotal(cheapestHotel.get().getRegularRate() * numberOfDays);
+        hotel.setTotal(cheapestHotel.get().getWeekdayRegularRate() * numberOfDays);
         /**
          * Printing Hotel name and total Hotel rate for the date range
          */
