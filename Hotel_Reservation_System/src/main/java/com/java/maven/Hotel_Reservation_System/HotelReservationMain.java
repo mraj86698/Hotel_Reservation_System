@@ -29,7 +29,8 @@ public class HotelReservationMain {
 		        System.out.println("2. Display Hotel Entry");
 		        System.out.println("3. Cheapest Hotel Based on WeekdayRegularRate");
 		        System.out.println("4. Cheapest Hotel Based on WeekEndRegularRate");
-		        System.out.println("5. Cheapest best Rated Hotel Based on WeekendRegularRate");
+		        System.out.println("5. Cheapest best Rated Hotel ");
+		        System.out.println("6. Best Rated Hotel");
 
 		        String user_input=sc.next();
 
@@ -71,10 +72,20 @@ public class HotelReservationMain {
 		        }
 		        case "5":{
 		        	System.out.println(" ");
-		            System.out.println("Cheapest best Rated Hotel Based on WeekendRegularRate");
+		            System.out.println("Cheapest best Rated Hotel");
 		            obj.findCheapestHotelRatingForRegular("11-Sep-2020","12-Sep-2020");
 		            System.out.println(" ");
+		            break;
 		        }
+		        case "6":{
+		        	System.out.println(" ");
+		            System.out.println("Best Rated Hotel ");
+		            obj.findBestRatingForRegular("11-Sep-2020","12-Sep-2020");
+		            System.out.println(" ");
+		            break;
+		        }
+
+
 
 		        default:
 		        	System.out.println("Unknown input.");
