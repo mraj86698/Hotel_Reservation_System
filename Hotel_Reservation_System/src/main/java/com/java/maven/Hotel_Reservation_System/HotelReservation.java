@@ -243,5 +243,65 @@ public class HotelReservation {
 
 		}
 	}
+	/**
+	 * Find Cheapest Rated Hotel for reward
+	 *
+	 * @param startDateRange
+	 * @param endDateRange
+	 */
+	public void findCheapestHotelRatingForReward(String startDateRange, String endDateRange) {
 
+		Date startDate = null;
+		Date endDate = null;
+		try {
+			startDate = new SimpleDateFormat("dd-MMM-yyyy").parse(startDateRange);
+			endDate = new SimpleDateFormat("dd-MMM-yyyy").parse(endDateRange);
+		} catch (ParseException e) {
+			System.out.println(e.getMessage());
+		}
+
+		long numberOfDays = 1 + (endDate.getTime() - startDate.getTime()) / 1000 / 60 / 60 / 24;
+		Calendar startCal = Calendar.getInstance();
+		startCal.setTime(startDate);
+
+		Calendar endCal = Calendar.getInstance();
+		endCal.setTime(endDate);
+		long noOfWeekdays = 0;
+		if (startCal.getTimeInMillis() < endCal.getTimeInMillis()) {
+
+			do {
+				if (startCal.get(Calendar.DAY_OF_WEEK) != Calendar.SATURDAY
+						&& startCal.get(Calendar.DAY_OF_WEEK) != Calendar.SUNDAY) {
+					++noOfWeekdays;
+				}
+				startCal.add(Calendar.DAY_OF_MONTH, 1);
+			} while (startCal.getTimeInMillis() <= endCal.getTimeInMillis());
+
+			long noOfWeekends = numberOfDays - noOfWeekdays;
+
+			/**
+			 * Stream function on arrlist hotelList and storing in cheapestHotel
+			 */
+
+			Optional<Hotel> cheapestHotel = this.hotelList.stream()
+					.min(Comparator.comparing(Hotel::getTotal).thenComparing(Hotel::getRating));
+
+			Hotel hotel = new Hotel(); // Hotel Object
+			hotel.setHotelName(cheapestHotel.get().getHotelName());
+			hotel.setTotal(cheapestHotel.get().getWeekdayReward() * noOfWeekdays
+					+ hotel.getWeekendReward() * noOfWeekends);
+			hotel.setRating(cheapestHotel.get().getRating());
+			/**
+			 * Printing Hotel name and total Hotel rate for the date range
+			 */
+			System.out.println("HotelName :" + hotel.getHotelName());
+			System.out.println("Days Stayed:" + numberOfDays);
+			/**
+			 * To calculate Number of days stayed + the weeklyRate for eg-(5*110)
+			 */
+			System.out.println("TotalBill :" + hotel.getTotal() + "$");
+			System.out.println("Rating :" + hotel.getRating());
+
+		}
+	}
 }
